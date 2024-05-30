@@ -1,0 +1,131 @@
+```{r}
+#install.packages('RPostgreSQL')
+library(RPostgreSQL)
+#install.packages("openxlsx")
+library(openxlsx)
+library(tidyverse)
+```
+
+```{r}
+tryCatch({
+    drv <- dbDriver("PostgreSQL")
+    print("Connecting to Database…")
+    connec <- dbConnect(drv, 
+                 dbname = "TribeGym",
+                 host = "localhost", 
+                 port = 4444,
+                 user = "ahmirpostell", 
+                 password = "123Ad0gs")
+    print("Database Connected!")
+    },
+    error=function(cond) {
+            print("Unable to connect to Database.")
+    })
+```
+
+```{r}
+df <- dbGetQuery(connec, 
+                 "SELECT name, event, score, comp_name, comp_date FROM score
+                 LEFT JOIN member
+                 ON member.id = score.athlete_id
+                 LEFT JOIN competition
+                 ON competition.id = score.competition_id"
+                 )
+df
+```
+
+```{r}
+excel_file <- "all_scores.xlsx"
+
+write.xlsx(df, excel_file)
+
+```
+
+
+
+```{r}
+team_scores <- dbGetQuery(connec,
+           "WITH all_events AS (
+               SELECT *,
+                      RANK() OVER (PARTITION BY event, competition_id ORDER BY score DESC) as rank 
+               FROM score
+               WHERE event IN ('FE', 'PH', 'R', 'VT', 'PB', 'HB')
+           )
+           SELECT
+           ROW_NUMBER() OVER (PARTITION BY EXTRACT(YEAR FROM comp_date) ORDER BY comp_date ASC) AS comp_id, comp_date, comp_name, SUM(score) FROM all_events
+           LEFT JOIN competition
+           ON all_events.competition_id = competition.id
+           WHERE rank <= 5
+           GROUP BY id, comp_name, comp_date
+           ORDER BY comp_date ASC")
+
+
+
+team_scores
+```
+
+```{r}
+excel_file <- "team_scores.xlsx"
+
+write.xlsx(team_scores, excel_file)
+
+```
+
+```{r}
+individual_scores <- dbGetQuery(connec,
+           "WITH all_events AS (
+               SELECT *,
+                      RANK() OVER (PARTITION BY event, competition_id ORDER BY score DESC) as rank 
+               FROM score
+               WHERE event IN ('FE', 'PH', 'R', 'VT', 'PB', 'HB')
+           )
+           SELECT name, event, score, comp_name, comp_date FROM all_events
+           LEFT JOIN competition
+           ON all_events.competition_id = competition.id
+           LEFT JOIN member
+           ON all_events.athlete_id = member.id
+           WHERE rank <= 5 
+           ORDER BY comp_date ASC")
+individual_scores
+```
+```{r}
+excel_file <- "individual_scores.xlsx"
+
+write.xlsx(individual_scores, excel_file)
+
+```
+
+```{r}
+leaving <- c("Baytop, M.", "Cuy, A.", "Kasiski, G.", "Kuzmenchuk, A.")
+leaving_scores <- individual_scores[individual_scores$name %in% leaving, ]
+excel_file <- "leaving_scores.xlsx"
+
+write.xlsx(leaving_scores, excel_file)
+
+```
+
+```{r}
+freshmen <- c("Zborowski, G.", "Wilkins, E.", "Noyman, J.", "Greenly, N.", "Grapsas, A.")
+new_scores <- individual_scores[individual_scores$name %in% freshmen, ]
+excel_file <- "new_scores.xlsx"
+
+write.xlsx(new_scores, excel_file)
+
+```
+
+```{r}
+leaving_scores
+```
+
+
+```{r}
+leaving_scores
+```
+
+
+
+```{r}
+dbDisconnect(connec)
+
+```
+

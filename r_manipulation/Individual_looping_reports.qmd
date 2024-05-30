@@ -1,0 +1,185 @@
+---
+title: "Individual_looping_reports"
+author: "Ahmir Postell"
+format: html
+---
+
+# For Each Athlete
+
+### Full Summary
+
+-   total \# of times saluted routine
+
+-   total \# of Events that contributed per year
+
+-   total amount of points earned (this year as well as other years)
+
+-   duration of time on team
+
+-   how average score compares to team average
+
+### Event Summaries (by year)
+
+-   average score per event for each year
+-   number of time competed per event for each year
+    -   Maybe a rank for how they did among teammates
+-   variability per each event for each year
+-   distribution visual
+-   line plot of score for each event
+    -   and progression of average score per year
+-   personal best score
+
+```{r}
+install.packages("RPostgreSQL")
+install.packages("openxlsx")
+```
+```{r}
+# reading in relavent packages
+library(RPostgreSQL)
+library(openxlsx)
+library(tidyverse)
+library(dplyr)
+library(knitr)
+library(rmarkdown)
+```
+
+```{r}
+# getting data
+tryCatch({
+    drv <- dbDriver("PostgreSQL")
+    print("Connecting to Database…")
+    connec <- dbConnect(drv, 
+                 dbname = "TribeGym",
+                 host = "localhost", 
+                 port = 4444,
+                 user = "ahmirpostell", 
+                 password = "123Ad0gs")
+    print("Database Connected!")
+    },
+    error=function(cond) {
+            print("Unable to connect to Database.")
+    })
+```
+
+
+
+```{r}
+scores <- dbGetQuery(connec, 
+                     "SELECT name, athlete_id, event, score, comp_name, comp_date FROM score
+                     LEFT JOIN member
+                     ON member.id = score.athlete_id
+                     LEFT JOIN competition
+                     ON competition.id = score.competition_id")
+members <- dbGetQuery(connec,
+                      "SELECT * FROM member")
+events <- dbGetQuery(connec,
+                     "SELECT * FROM apparatus")
+```
+
+
+
+```{r}
+# closing SQL connection
+dbDisconnect(connec)
+```
+
+```{r}
+years <- 2020:2024
+#team scores
+team_2024 <- scores %>% filter(format(as.POSIXct(scores$comp_date), "%Y") == "2020")
+
+viewing_scores <- scores %>% filter(athlete_id == 1)
+viewing_events <- unique(viewing_scores$event)
+
+# saluted routines
+routine_count <- nrow(viewing_scores)
+
+# averages
+vs_2024 <- viewing_scores %>% filter(format(as.POSIXct(viewing_scores$comp_date), "%Y") == "2024")
+
+avg_2024 <- c()
+for (x in events) {
+  temp_df <- vs_2024 %>% filter(event == x)
+  if (length(temp_df$score) != 0) {
+    avg_2024[x] <- mean(temp_df$score)
+  }
+}
+avg_2024
+
+
+
+```
+
+```{r}
+avg <- function(year, id = NULL) {
+  subset <- scores %>% filter(format(as.POSIXct(scores$comp_date), "%Y") == year)
+  if (!is.null(id)) {
+    subset <- subset %>% filter(athlete_id == id)
+  }
+  avg <- c()
+  for (x in unique(subset$event)) {
+  temp_df <- subset %>% filter(event == x)
+  if (length(temp_df$score) != 0) {
+    avg[x] <- mean(temp_df$score)
+    }
+  }
+  return(avg)
+}
+```
+
+```{r}
+avg("2023", 1)
+```
+
+
+
+```{r}
+sort(unique(format(scores$comp_date, "%Y")))
+```
+
+```{r}
+all_id <- sort(unique(scores$athlete_id))
+all_id
+```
+
+
+```{r}
+# Start time
+start_time <- Sys.time()
+
+# Set the working directory
+dir <- "../../Individual_Reports"
+if (!file.exists(dir)) {
+  dir.create(dir)
+} else {
+  # Remove existing files if any
+  file.remove(list.files(dir, full.names = TRUE))
+}
+
+opts_knit$set(root.dir = dir)
+
+# Run loop to create report for each athlete
+for(id in all_id){
+  # Rendering pdf
+  viewing_scores <- scores %>% filter(athlete_id == id)
+  a_name <- viewing_scores$name[1]
+  
+  # Set the file name of the report
+  filename <- paste(a_name, ".pdf", sep = "")
+  
+  print(paste0("id: ", id))
+  print(paste0("filename: ", filename))
+  
+  # Identify template to create reports; pass parameters to template
+  rmarkdown::render(input = "Looping Reports Template 1.Rmd", 
+                    output_file = filename,
+                    output_dir = dir,
+                    params = list(id = id),
+                    quiet = TRUE)
+}
+
+# End timer
+end_time <- Sys.time() - start_time
+
+```
+

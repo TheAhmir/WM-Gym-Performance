@@ -1,0 +1,291 @@
+---
+title: "Individual Performance Report"
+author: "Ahmir Postell"
+output: 
+  pdf_document:
+    extra_dependencies: ["multicol"]
+header-includes:
+  - \usepackage{fancyhdr}
+  - \usepackage{amsmath}
+  - \usepackage{hyperref}
+  - \usepackage[table,xcdraw]{xcolor}
+  - \usepackage{longtable}
+  - \usepackage{graphicx}
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+params:
+  id: NA
+---
+
+```{r}
+#| include: false
+
+library(RPostgreSQL)
+library(openxlsx)
+library(tidyverse)
+library(dplyr)
+library(knitr)
+library(rmarkdown)
+library(ggplot2)
+library(kableExtra)
+```
+
+
+```{r}
+#| include: false
+
+id <- params$id
+event_name <- c(
+  "FE" = "Floor Exercise",
+  "PH" = "Pommel Horse",
+  "R" = "Rings",
+  "VT" = "Vault",
+  "PB" = "Parallel Bars",
+  "HB" = "Highbar Bars",
+  "AA" = "All Around"
+)
+
+```
+
+```{r}
+#| include: false
+# gathering data
+tryCatch({
+    drv <- dbDriver("PostgreSQL")
+    print("Connecting to Database…")
+    connec <- dbConnect(drv, 
+                 dbname = "TribeGym",
+                 host = "localhost", 
+                 port = 4444,
+                 user = "ahmirpostell", 
+                 password = "123Ad0gs")
+    print("Database Connected!")
+    },
+    error=function(cond) {
+            print("Unable to connect to Database.")
+    })
+
+scores <- dbGetQuery(connec, 
+                     "SELECT name, athlete_id, event, score, comp_name, comp_date FROM score
+                     LEFT JOIN member
+                     ON member.id = score.athlete_id
+                     LEFT JOIN competition
+                     ON competition.id = score.competition_id")
+members <- dbGetQuery(connec,
+                      "SELECT * FROM member")
+events <- dbGetQuery(connec,
+                     "SELECT * FROM apparatus")
+
+```
+
+```{r}
+#| include: false
+# closing SQL connection
+dbDisconnect(connec)
+```
+
+```{r}
+#| include: false
+# getting relevant data
+viewing_scores <- scores %>% filter(athlete_id == id)
+viewing_scores$event <- factor(viewing_scores$event, levels = names(event_name))
+viewing_scores$year <- format(viewing_scores$comp_date, "%Y")
+# constant variables
+a_name <- viewing_scores$name[1]
+a_routine_count <- nrow(viewing_scores)
+a_events <- unique(viewing_scores$event)
+a_years <- sort(unique(format(viewing_scores$comp_date, "%Y")))
+```
+
+
+```{r}
+#| include: false
+# 1st page plot
+average_score <- scores %>%
+  filter(athlete_id == id) %>%
+  group_by(year = format(as.POSIXct(comp_date), "%Y"), event) %>%
+  summarise(
+    average_score = mean(score, na.rm = TRUE),
+    total_routines = n()
+  )
+
+if ("AA" %in% a_events) {
+  average_score <- average_score %>% filter(event != "AA")
+  
+}
+
+# Transform the data into long format for ggplot
+plot_data <- average_score %>%
+  pivot_longer(cols = c("average_score"), 
+               names_to = "metric", 
+               values_to = "value")
+```
+
+```{r}
+plot_data
+```
+
+
+
+
+```{r}
+#| include: false
+
+knitr::opts_chunk$set(echo = FALSE, 
+                      tidy.opts = list(width.cutoff = 60), tidy = TRUE)
+options(scipen = 999999,
+        dplyr.summarise.inform = F)
+
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(kableExtra))
+```
+
+# Performance Report for `r a_name`
+
+This report summarizes the performance data for `r a_name` over the course of his time as a member of William and Mary's Division I Men's Gymnastics Team. `r a_name` has contributed to William and Mary in `r length(a_events)` event(s) over `r length(a_years)` years, saluting a total of `r a_routine_count` routines.
+
+\
+
+\begin{multicols}{2}
+
+Competitive Years\\
+```{r echo = FALSE, results = 'asis', eval = TRUE}
+for (x in a_years) {
+  cat(paste("• ", x, "\\\\"))
+}
+```
+
+\columnbreak
+
+Competitive Events:\\
+```{r echo = FALSE, results = 'asis', eval = TRUE}
+for (x in a_events) {
+  cat(paste("• ", event_name[x], "\\\\"))
+}
+```
+
+\end{multicols}
+
+\
+
+
+```{r echo = FALSE, fig.width=12, fig.height=6}
+
+# Create the line plot
+ggplot(plot_data, aes(x = year, y = value, color = event, group = event)) +
+  geom_line(size=1) +
+  geom_point(size=2) +
+  labs(title = "Performance Over Each Year",
+       x = "Year",
+       y = "Average Score that Year",
+       color = "Event") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+
+```
+
+
+```{r}
+#| include: false
+# helper function
+get_ordinal_suffix <- function(n) {
+  if (n %% 10 == 0) {
+    return("th")
+  } else if (n %% 10 == 1 && n %% 100 != 11) {
+    return("st")
+  } else if (n %% 10 == 2 && n %% 100 != 12) {
+    return("nd")
+  } else if (n %% 10 == 3 && n %% 100 != 13) {
+    return("rd")
+  } else {
+    return("th")
+  }
+}
+
+```
+
+
+
+```{r echo = FALSE, results = 'asis', eval = TRUE, fig.width=8, fig.height=4}
+results <- data.frame(Event = character(), Highest = numeric(), Lowest = numeric(), Average = numeric(), Percentile = character(), stringsAsFactors = FALSE)
+
+for (year in a_years) {
+  cat("\\newpage\n\n")
+  cat(paste("#", year, "\n\n"))
+  
+  filtered_scores_year <- scores %>%
+    filter(format(as.POSIXct(scores$comp_date), "%Y") == year, athlete_id == id)
+  
+  cur_events <- unique(filtered_scores_year$event)
+  
+  for (event in cur_events) {
+    filtered_scores_event <- filtered_scores_year %>%
+      filter(event == !!event)
+    
+    this_average <- filtered_scores_event %>%
+      summarise(average_score = mean(score, na.rm = TRUE)) %>%
+      pull(average_score)
+    
+    percentile_data <- scores %>%
+      filter(format(as.POSIXct(scores$comp_date), "%Y") == year, event == !!event)
+    
+    ecdf_function <- ecdf(percentile_data$score)
+    percentile <- round(ecdf_function(this_average) * 100, digits = 0)
+
+    ordinal_suffix <- get_ordinal_suffix(percentile)
+    
+    # Add the result to the data frame
+    results <- rbind(results, data.frame(Event = event, Highest = max(filtered_scores_event$score), Lowest = min(filtered_scores_event$score), Average = round(mean(filtered_scores_event$score), digits = 2), Percentile = paste0(percentile, ordinal_suffix, " Percentile")))
+  }
+  
+  # Print the results as a table
+  table <- kable(results, format = "markdown") %>% 
+    kable_styling()
+  cat(table, "\n\n")
+  
+  # Clear the results data frame for the next year
+  results <- data.frame(Event = character(), Highest = numeric(), Lowest = numeric(), Average = numeric(), Percentile = character(), stringsAsFactors = FALSE)
+  
+  athlete_summary <- scores %>%
+  filter(format(scores$comp_date, "%Y") == !!year, event %in% cur_events) %>%
+  group_by(athlete_id, event,) %>%
+  summarise(
+    average_score = mean(score, na.rm = TRUE),
+    highest_score = max(score, na.rm = TRUE)
+  )
+
+scatter_plot <- ggplot(athlete_summary, aes(x = average_score, y = highest_score, color = event)) +
+  geom_point(size=2) +
+  labs(title = paste0("Scatter Plot of Average vs Highest Scores in ", year),
+       x = "Average Score",
+       y = "Highest Score") +
+  scale_color_discrete(name = "Event") +
+  geom_point(data = filter(athlete_summary, athlete_id == id), color = "black", size = 3) +
+  guides(color = guide_legend(title = "Event")) + 
+  facet_wrap(~ event, scales = 'free')
+
+not_aa <- viewing_scores %>% 
+  filter(event != "AA", year == !!year) %>%
+  mutate(comp_date = as.Date(comp_date)) %>%
+  arrange(comp_date)
+line_plot <- ggplot(not_aa, aes(x = comp_date, y = score, color = event)) +
+  geom_line() +
+  geom_point(size=2) +
+  labs(title = paste0("Exact Scores throughout ", year),
+       x = "Date",
+       y = "Score")
+
+print(scatter_plot)
+
+
+print(line_plot)
+}
+```
+
+```{r}
+percentile_data
+```
+

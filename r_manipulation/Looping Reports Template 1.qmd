@@ -1,0 +1,32 @@
+---
+title: "TribeMGym Individual Report"
+format: 
+  pdf:
+    toc: true
+    toc-depth: 4
+    toc-title: Table of Contents
+params:
+  continent.name: NA
+---
+
+```{r}
+#| include: false
+
+continent.name <- params$continent.name
+```
+
+```{r}
+#| include: false
+
+knitr::opts_chunk$set(echo = FALSE, 
+                      tidy.opts = list(width.cutoff = 60), tidy = TRUE)
+options(scipen = 999999,
+        dplyr.summarise.inform = F)
+
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(kableExtra))
+```
+
+# Report for `r name`
+
+This report summarizes the Gender Inequality Index (GII) data for `r params$name`.
