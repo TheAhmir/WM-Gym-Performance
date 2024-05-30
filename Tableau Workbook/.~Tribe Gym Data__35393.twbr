@@ -1,0 +1,1326 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20241.24.0425.1340                               -->
+<workbook original-version='18.1' source-build='2024.1.2 (20241.24.0425.1340)' source-platform='mac' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AccessibleZoneTabOrder.true...AccessibleZoneTabOrder />
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <SpecificWebTargetsForActions />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <_.fcp.WorkbookOptimizerRuleConfig.true...WorkbookOptimizerRuleConfig />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <repository-location id='TribeGymData' path='/workbooks' revision='2.3' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='any' role='measure' type='quantitative' value='5'>
+        <calculation class='tableau' formula='5' />
+      </column>
+    </datasource>
+    <datasource caption='Sheet 1 (team_scores)' inline='true' name='federated.1768uev11ia5l914lh1rg0ucy209' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='team_scores' name='excel-direct.0wik7cv0ft21i91h7bgcg0scrwzi'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='/Users/ahmirpostell/Desktop/PersonalProjects/SQL/Data/R_notebooks/team_scores.xlsx' interpretationMode='0' password='' server='' validate='no' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='excel-direct.0wik7cv0ft21i91h7bgcg0scrwzi' name='Sheet 1' table='[&apos;Sheet 1$&apos;]' type='table'>
+          <columns gridOrigin='A1:D50:no:A1:D50:0' header='yes' outcome='6'>
+            <column datatype='integer' name='comp_id' ordinal='0' />
+            <column datatype='date' name='comp_date' ordinal='1' />
+            <column datatype='string' name='comp_name' ordinal='2' />
+            <column datatype='real' name='sum' ordinal='3' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='excel-direct.0wik7cv0ft21i91h7bgcg0scrwzi' name='Sheet 1' table='[&apos;Sheet 1$&apos;]' type='table'>
+          <columns gridOrigin='A1:D50:no:A1:D50:0' header='yes' outcome='6'>
+            <column datatype='integer' name='comp_id' ordinal='0' />
+            <column datatype='date' name='comp_date' ordinal='1' />
+            <column datatype='string' name='comp_name' ordinal='2' />
+            <column datatype='real' name='sum' ordinal='3' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Sheet 1]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:D50:no:A1:D50:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>comp_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[comp_id]</local-name>
+            <parent-name>[Sheet 1]</parent-name>
+            <remote-alias>comp_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet 1_BDEB0F6B822B4CB1A6B6939BD24B055D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>comp_date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[comp_date]</local-name>
+            <parent-name>[Sheet 1]</parent-name>
+            <remote-alias>comp_date</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet 1_BDEB0F6B822B4CB1A6B6939BD24B055D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>comp_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[comp_name]</local-name>
+            <parent-name>[Sheet 1]</parent-name>
+            <remote-alias>comp_name</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet 1_BDEB0F6B822B4CB1A6B6939BD24B055D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sum</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[sum]</local-name>
+            <parent-name>[Sheet 1]</parent-name>
+            <remote-alias>sum</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet 1_BDEB0F6B822B4CB1A6B6939BD24B055D]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='labels' datatype='real' name='[Calculation_2490560986413297678]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF INDEX() &lt;= [Parameters].[Parameter 1] THEN ATTR([sum]) END'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <_.fcp.ObjectModelTableType.true...column caption='Sheet 1' datatype='table' name='[__tableau_internal_object_id__].[Sheet 1_BDEB0F6B822B4CB1A6B6939BD24B055D]' role='measure' type='quantitative' />
+      <column caption='Comp Date' datatype='date' name='[comp_date]' role='dimension' type='ordinal' />
+      <column caption='Comp Id' datatype='integer' name='[comp_id]' role='dimension' type='ordinal' />
+      <column caption='Comp Name' datatype='string' name='[comp_name]' role='dimension' type='nominal' />
+      <column caption='Sum' datatype='real' name='[sum]' role='measure' type='quantitative' />
+      <column-instance column='[comp_name]' derivation='None' name='[none:comp_name:nk]' pivot='key' type='nominal' />
+      <column-instance column='[comp_date]' derivation='Year' name='[yr:comp_date:ok]' pivot='key' type='ordinal' />
+      <group caption='Action (YEAR(Comp Date))' hidden='true' name='[Action (YEAR(Comp Date))]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[yr:comp_date:ok]' />
+        </groupfilter>
+      </group>
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='/var/folders/58/2qwvnyt504d52wnhtdkc3j080000gn/T/tableau-temp/#TableauTemp_190w5uq0dkr84l11oqn4y047iru0.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='' username='tableau_internal_user'>
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>comp_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[comp_id]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>comp_id</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Sheet 1</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>comp_date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[comp_date]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>comp_date</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Sheet 1</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>49</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>comp_name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[comp_name]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>comp_name</remote-alias>
+              <ordinal>2</ordinal>
+              <family>Sheet 1</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>23</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>sum</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[sum]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>sum</remote-alias>
+              <ordinal>3</ordinal>
+              <family>Sheet 1</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>48</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:comp_name:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;USAG&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;NCAA&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;WP Open&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Spring.&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Penn. St.&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Greenville&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Okla.&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Illinois&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Ohio St.&quot;</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>&quot;Cal&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Simpson&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;ECAC&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Spring..1&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Springfield&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Oklahoma&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Navy&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;Air Force&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;Army&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Navy-3&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Navy Open&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Penn St.&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;Stanford&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Navy-2&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='any' role='measure' type='quantitative' value='5'>
+          <calculation class='tableau' formula='5' />
+        </column>
+      </datasource-dependencies>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='Sheet 1' id='Sheet 1_BDEB0F6B822B4CB1A6B6939BD24B055D'>
+            <properties context=''>
+              <relation connection='excel-direct.0wik7cv0ft21i91h7bgcg0scrwzi' name='Sheet 1' table='[&apos;Sheet 1$&apos;]' type='table'>
+                <columns gridOrigin='A1:D50:no:A1:D50:0' header='yes' outcome='6'>
+                  <column datatype='integer' name='comp_id' ordinal='0' />
+                  <column datatype='date' name='comp_date' ordinal='1' />
+                  <column datatype='string' name='comp_name' ordinal='2' />
+                  <column datatype='real' name='sum' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+    <datasource caption='Sheet 1 (all_scores)' inline='true' name='federated.1t266zq12b739u10gixn20ykypfs' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='all_scores' name='excel-direct.15rrjhu1we19ra16m9ssu10wi3e8'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='/Users/ahmirpostell/Desktop/PersonalProjects/SQL/Data/R_notebooks/all_scores.xlsx' interpretationMode='0' password='' server='' validate='no' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='excel-direct.15rrjhu1we19ra16m9ssu10wi3e8' name='Sheet 1' table='[&apos;Sheet 1$&apos;]' type='table'>
+          <columns gridOrigin='A1:E1630:no:A1:E1630:0' header='yes' outcome='6'>
+            <column datatype='string' name='name' ordinal='0' />
+            <column datatype='string' name='event' ordinal='1' />
+            <column datatype='real' name='score' ordinal='2' />
+            <column datatype='string' name='comp_name' ordinal='3' />
+            <column datatype='date' name='comp_date' ordinal='4' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='excel-direct.15rrjhu1we19ra16m9ssu10wi3e8' name='Sheet 1' table='[&apos;Sheet 1$&apos;]' type='table'>
+          <columns gridOrigin='A1:E1630:no:A1:E1630:0' header='yes' outcome='6'>
+            <column datatype='string' name='name' ordinal='0' />
+            <column datatype='string' name='event' ordinal='1' />
+            <column datatype='real' name='score' ordinal='2' />
+            <column datatype='string' name='comp_name' ordinal='3' />
+            <column datatype='date' name='comp_date' ordinal='4' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Sheet 1]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:E1630:no:A1:E1630:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[name]</local-name>
+            <parent-name>[Sheet 1]</parent-name>
+            <remote-alias>name</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet 1_34FB32925C094B539A66A12A4CB97BE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>event</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[event]</local-name>
+            <parent-name>[Sheet 1]</parent-name>
+            <remote-alias>event</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet 1_34FB32925C094B539A66A12A4CB97BE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[score]</local-name>
+            <parent-name>[Sheet 1]</parent-name>
+            <remote-alias>score</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet 1_34FB32925C094B539A66A12A4CB97BE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>comp_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[comp_name]</local-name>
+            <parent-name>[Sheet 1]</parent-name>
+            <remote-alias>comp_name</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet 1_34FB32925C094B539A66A12A4CB97BE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>comp_date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[comp_date]</local-name>
+            <parent-name>[Sheet 1]</parent-name>
+            <remote-alias>comp_date</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Sheet 1_34FB32925C094B539A66A12A4CB97BE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Labels by index' datatype='real' name='[Calculation_2490560986263769089]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF INDEX() &lt;= [Parameters].[Parameter 1] THEN SUM([score]) END'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Text' datatype='string' name='[Calculation_2490560986424545301]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='&quot;Individual Data&quot;' />
+      </column>
+      <column datatype='string' name='[Text (group)]' role='dimension' type='nominal'>
+        <calculation class='categorical-bin' column='[Calculation_2490560986424545301]' new-bin='true'>
+          <bin default-name='true' value='&quot;Individual Data&quot;'>
+            <value>&quot;Individual Data&quot;</value>
+          </bin>
+        </calculation>
+      </column>
+      <_.fcp.ObjectModelTableType.true...column caption='Sheet 1' datatype='table' name='[__tableau_internal_object_id__].[Sheet 1_34FB32925C094B539A66A12A4CB97BE5]' role='measure' type='quantitative' />
+      <column caption='Comp Date' datatype='date' name='[comp_date]' role='dimension' type='ordinal' />
+      <column caption='Comp Name' datatype='string' name='[comp_name]' role='dimension' type='nominal' />
+      <column caption='Event' datatype='string' name='[event]' role='dimension' type='nominal' />
+      <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
+      <column caption='Score' datatype='real' name='[score]' role='measure' type='quantitative' />
+      <column-instance column='[event]' derivation='None' name='[none:event:nk]' pivot='key' type='nominal' />
+      <column-instance column='[comp_date]' derivation='Year' name='[yr:comp_date:ok]' pivot='key' type='ordinal' />
+      <group caption='Action (YEAR(Comp Date),Comp Name)' hidden='true' name='[Action (YEAR(Comp Date),Comp Name)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[yr:comp_date:ok]' />
+          <groupfilter function='level-members' level='[comp_name]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (YEAR(Comp Date),Event)' hidden='true' name='[Action (YEAR(Comp Date),Event)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[yr:comp_date:ok]' />
+          <groupfilter function='level-members' level='[event]' />
+        </groupfilter>
+      </group>
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='/var/folders/58/2qwvnyt504d52wnhtdkc3j080000gn/T/tableau-temp/#TableauTemp_01yxuxe1fn05qn11bpvy20hayy9z.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='' username='tableau_internal_user'>
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[name]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>name</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Sheet 1</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>35</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>event</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[event]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>event</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Sheet 1</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>score</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[score]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>score</remote-alias>
+              <ordinal>2</ordinal>
+              <family>Sheet 1</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>190</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>comp_name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[comp_name]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>comp_name</remote-alias>
+              <ordinal>3</ordinal>
+              <family>Sheet 1</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>23</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>comp_date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[comp_date]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>comp_date</remote-alias>
+              <ordinal>4</ordinal>
+              <family>Sheet 1</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>48</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:event:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;AA&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;PH&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;PB&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;VT&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;HB&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;R&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;FE&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='any' role='measure' type='quantitative' value='5'>
+          <calculation class='tableau' formula='5' />
+        </column>
+      </datasource-dependencies>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='Sheet 1' id='Sheet 1_34FB32925C094B539A66A12A4CB97BE5'>
+            <properties context=''>
+              <relation connection='excel-direct.15rrjhu1we19ra16m9ssu10wi3e8' name='Sheet 1' table='[&apos;Sheet 1$&apos;]' type='table'>
+                <columns gridOrigin='A1:E1630:no:A1:E1630:0' header='yes' outcome='6'>
+                  <column datatype='string' name='name' ordinal='0' />
+                  <column datatype='string' name='event' ordinal='1' />
+                  <column datatype='real' name='score' ordinal='2' />
+                  <column datatype='string' name='comp_name' ordinal='3' />
+                  <column datatype='date' name='comp_date' ordinal='4' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <shared-views>
+    <shared-view name='federated.1768uev11ia5l914lh1rg0ucy209'>
+      <datasources>
+        <datasource caption='Sheet 1 (team_scores)' name='federated.1768uev11ia5l914lh1rg0ucy209' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1768uev11ia5l914lh1rg0ucy209'>
+        <column caption='Comp Date' datatype='date' name='[comp_date]' role='dimension' type='ordinal' />
+        <column caption='Comp Name' datatype='string' name='[comp_name]' role='dimension' type='nominal' />
+        <column-instance column='[comp_name]' derivation='None' name='[none:comp_name:nk]' pivot='key' type='nominal' />
+        <column-instance column='[comp_date]' derivation='Year' name='[yr:comp_date:ok]' pivot='key' type='ordinal' />
+      </datasource-dependencies>
+      <filter class='categorical' column='[federated.1768uev11ia5l914lh1rg0ucy209].[none:comp_name:nk]'>
+        <groupfilter function='level-members' level='[none:comp_name:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+        <target field='[federated.1768uev11ia5l914lh1rg0ucy209].[none:comp_name:nk]' />
+      </filter>
+      <filter class='categorical' column='[federated.1768uev11ia5l914lh1rg0ucy209].[yr:comp_date:ok]'>
+        <groupfilter function='member' level='[yr:comp_date:ok]' member='2020' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+        <target field='[federated.1768uev11ia5l914lh1rg0ucy209].[yr:comp_date:ok]' />
+      </filter>
+    </shared-view>
+    <shared-view name='federated.1t266zq12b739u10gixn20ykypfs'>
+      <datasources>
+        <datasource caption='Sheet 1 (all_scores)' name='federated.1t266zq12b739u10gixn20ykypfs' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1768uev11ia5l914lh1rg0ucy209'>
+        <column caption='Comp Date' datatype='date' name='[comp_date]' role='dimension' type='ordinal' />
+        <column caption='Comp Name' datatype='string' name='[comp_name]' role='dimension' type='nominal' />
+        <column-instance column='[comp_name]' derivation='None' name='[none:comp_name:nk]' pivot='key' type='nominal' />
+        <column-instance column='[comp_date]' derivation='Year' name='[yr:comp_date:ok]' pivot='key' type='ordinal' />
+      </datasource-dependencies>
+      <datasource-dependencies datasource='federated.1t266zq12b739u10gixn20ykypfs'>
+        <column caption='Comp Date' datatype='date' name='[comp_date]' role='dimension' type='ordinal' />
+        <column caption='Comp Name' datatype='string' name='[comp_name]' role='dimension' type='nominal' />
+        <column-instance column='[comp_name]' derivation='None' name='[none:comp_name:nk]' pivot='key' type='nominal' />
+        <column-instance column='[comp_date]' derivation='Year' name='[yr:comp_date:ok]' pivot='key' type='ordinal' />
+      </datasource-dependencies>
+      <filter class='categorical' column='[federated.1768uev11ia5l914lh1rg0ucy209].[none:comp_name:nk]'>
+        <groupfilter function='level-members' level='[none:comp_name:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+        <target field='[federated.1t266zq12b739u10gixn20ykypfs].[none:comp_name:nk]' />
+      </filter>
+      <filter class='categorical' column='[federated.1768uev11ia5l914lh1rg0ucy209].[yr:comp_date:ok]'>
+        <groupfilter function='member' level='[yr:comp_date:ok]' member='2020' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+        <target field='[federated.1t266zq12b739u10gixn20ykypfs].[yr:comp_date:ok]' />
+      </filter>
+    </shared-view>
+  </shared-views>
+  <actions>
+    <action caption='Individual Data' name='[Action1_622C2E7799AD49F3812FF9F22E9DF4A8]'>
+      <activation type='on-select' />
+      <source type='sheet' worksheet='Select' />
+      <link caption='' expression='https://www.dropbox.com/scl/fo/qryou1360vokeo6gj3mi8/APZrZ5UkKwyJgHmR6Q2_wl4?rlkey=q6b6p8obrd28uu6qrflyliv74&amp;st=u10jj5wk&amp;dl=0'>
+        <url-action-type>browser</url-action-type>
+      </link>
+    </action>
+  </actions>
+  <worksheets>
+    <worksheet name='Avergage Event Score'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Average Event Score &lt;</run>
+            <run>[federated.1t266zq12b739u10gixn20ykypfs].[yr:comp_date:ok]</run>
+            <run>&gt;  &lt;</run>
+            <run>[federated.1t266zq12b739u10gixn20ykypfs].[none:comp_name:nk]</run>
+            <run>&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Sheet 1 (all_scores)' name='federated.1t266zq12b739u10gixn20ykypfs' />
+            <datasource caption='Sheet 1 (team_scores)' name='federated.1768uev11ia5l914lh1rg0ucy209' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1768uev11ia5l914lh1rg0ucy209'>
+            <column caption='Comp Date' datatype='date' name='[comp_date]' role='dimension' type='ordinal' />
+            <column caption='Comp Name' datatype='string' name='[comp_name]' role='dimension' type='nominal' />
+            <column-instance column='[comp_name]' derivation='None' name='[none:comp_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[comp_date]' derivation='Year' name='[yr:comp_date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1t266zq12b739u10gixn20ykypfs'>
+            <column-instance column='[score]' derivation='Avg' name='[avg:score:qk]' pivot='key' type='quantitative' />
+            <column caption='Comp Date' datatype='date' name='[comp_date]' role='dimension' type='ordinal' />
+            <column caption='Comp Name' datatype='string' name='[comp_name]' role='dimension' type='nominal' />
+            <column caption='Event' datatype='string' name='[event]' role='dimension' type='nominal' />
+            <column-instance column='[comp_name]' derivation='None' name='[none:comp_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[event]' derivation='None' name='[none:event:nk]' pivot='key' type='nominal' />
+            <column caption='Score' datatype='real' name='[score]' role='measure' type='quantitative' />
+            <column-instance column='[comp_date]' derivation='Year' name='[yr:comp_date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1t266zq12b739u10gixn20ykypfs].[Action (YEAR(Comp Date),Comp Name)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action1_7B8FDAF82EE143DCA7EDAC4DA39F9A67]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[yr:comp_date:ok]' />
+              <groupfilter function='level-members' level='[comp_name]' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1t266zq12b739u10gixn20ykypfs].[Action (YEAR(Comp Date),Event)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action1_421B4C65FE5F433DA24E045A339FC87D]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[yr:comp_date:ok]' />
+              <groupfilter function='level-members' level='[event]' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1t266zq12b739u10gixn20ykypfs].[none:event:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:event:nk]' />
+              <groupfilter function='union'>
+                <groupfilter function='member' level='[none:event:nk]' member='&quot;AA&quot;' />
+                <groupfilter function='member' level='[none:event:nk]' member='%null%' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1t266zq12b739u10gixn20ykypfs].[Action (YEAR(Comp Date),Comp Name)]</column>
+            <column>[federated.1t266zq12b739u10gixn20ykypfs].[Action (YEAR(Comp Date),Event)]</column>
+            <column>[federated.1768uev11ia5l914lh1rg0ucy209].[none:comp_name:nk]</column>
+            <column>[federated.1768uev11ia5l914lh1rg0ucy209].[yr:comp_date:ok]</column>
+            <column>[federated.1t266zq12b739u10gixn20ykypfs].[none:event:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' domain-expand='false' field='[federated.1t266zq12b739u10gixn20ykypfs].[avg:score:qk]' field-type='quantitative' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.1t266zq12b739u10gixn20ykypfs].[none:event:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1t266zq12b739u10gixn20ykypfs].[avg:score:qk]</rows>
+        <cols>([federated.1t266zq12b739u10gixn20ykypfs].[yr:comp_date:ok] / [federated.1t266zq12b739u10gixn20ykypfs].[none:event:nk])</cols>
+      </table>
+      <simple-id uuid='{DCCD1E65-97A6-47F0-B358-4B3609DF7066}' />
+    </worksheet>
+    <worksheet name='Max and Min per Meet'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Max and Min per Event</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Sheet 1 (all_scores)' name='federated.1t266zq12b739u10gixn20ykypfs' />
+            <datasource caption='Sheet 1 (team_scores)' name='federated.1768uev11ia5l914lh1rg0ucy209' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1768uev11ia5l914lh1rg0ucy209'>
+            <column caption='Comp Date' datatype='date' name='[comp_date]' role='dimension' type='ordinal' />
+            <column caption='Comp Name' datatype='string' name='[comp_name]' role='dimension' type='nominal' />
+            <column-instance column='[comp_name]' derivation='None' name='[none:comp_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[comp_date]' derivation='Year' name='[yr:comp_date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1t266zq12b739u10gixn20ykypfs'>
+            <column caption='Comp Date' datatype='date' name='[comp_date]' role='dimension' type='ordinal' />
+            <column caption='Comp Name' datatype='string' name='[comp_name]' role='dimension' type='nominal' />
+            <column caption='Event' datatype='string' name='[event]' role='dimension' type='nominal' />
+            <column-instance column='[score]' derivation='Max' name='[max:score:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[score]' derivation='Min' name='[min:score:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[comp_name]' derivation='None' name='[none:comp_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[event]' derivation='None' name='[none:event:nk]' pivot='key' type='nominal' />
+            <column caption='Score' datatype='real' name='[score]' role='measure' type='quantitative' />
+            <column-instance column='[comp_date]' derivation='Year' name='[yr:comp_date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1t266zq12b739u10gixn20ykypfs].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1t266zq12b739u10gixn20ykypfs].[max:score:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1t266zq12b739u10gixn20ykypfs].[min:score:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1t266zq12b739u10gixn20ykypfs].[Action (YEAR(Comp Date),Comp Name)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action1_7B8FDAF82EE143DCA7EDAC4DA39F9A67]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[yr:comp_date:ok]' />
+              <groupfilter function='level-members' level='[comp_name]' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1t266zq12b739u10gixn20ykypfs].[Action (YEAR(Comp Date),Event)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action2_356BC612D60C48EFB1F9325C9A41B8D9]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[yr:comp_date:ok]' />
+              <groupfilter function='level-members' level='[event]' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1t266zq12b739u10gixn20ykypfs].[:Measure Names]</column>
+            <column>[federated.1t266zq12b739u10gixn20ykypfs].[Action (YEAR(Comp Date),Comp Name)]</column>
+            <column>[federated.1t266zq12b739u10gixn20ykypfs].[Action (YEAR(Comp Date),Event)]</column>
+            <column>[federated.1768uev11ia5l914lh1rg0ucy209].[none:comp_name:nk]</column>
+            <column>[federated.1768uev11ia5l914lh1rg0ucy209].[yr:comp_date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.1t266zq12b739u10gixn20ykypfs].[yr:comp_date:ok]' value='72' />
+            <format attr='height' field='[federated.1t266zq12b739u10gixn20ykypfs].[none:event:nk]' value='36' />
+            <format attr='text-align' data-class='subtotal' value='center' />
+            <format attr='text-align' data-class='subtotal' scope='rows' value='center' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-align' value='center' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1t266zq12b739u10gixn20ykypfs].[Multiple Values]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1t266zq12b739u10gixn20ykypfs].[none:event:nk]</rows>
+        <cols>([federated.1t266zq12b739u10gixn20ykypfs].[:Measure Names] / [federated.1t266zq12b739u10gixn20ykypfs].[yr:comp_date:ok])</cols>
+      </table>
+      <simple-id uuid='{5982FF6F-73DB-47A2-A3FA-0691845BF56E}' />
+    </worksheet>
+    <worksheet name='Select'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Sheet 1 (all_scores)' name='federated.1t266zq12b739u10gixn20ykypfs' />
+            <datasource caption='Sheet 1 (team_scores)' name='federated.1768uev11ia5l914lh1rg0ucy209' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1768uev11ia5l914lh1rg0ucy209'>
+            <column caption='Comp Date' datatype='date' name='[comp_date]' role='dimension' type='ordinal' />
+            <column caption='Comp Name' datatype='string' name='[comp_name]' role='dimension' type='nominal' />
+            <column-instance column='[comp_name]' derivation='None' name='[none:comp_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[comp_date]' derivation='Year' name='[yr:comp_date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1t266zq12b739u10gixn20ykypfs'>
+            <column caption='Text' datatype='string' name='[Calculation_2490560986424545301]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='&quot;Individual Data&quot;' />
+            </column>
+            <column datatype='string' name='[Text (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[Calculation_2490560986424545301]' new-bin='true'>
+                <bin default-name='true' value='&quot;Individual Data&quot;'>
+                  <value>&quot;Individual Data&quot;</value>
+                </bin>
+              </calculation>
+            </column>
+            <column caption='Comp Date' datatype='date' name='[comp_date]' role='dimension' type='ordinal' />
+            <column caption='Comp Name' datatype='string' name='[comp_name]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_2490560986424545301]' derivation='None' name='[none:Calculation_2490560986424545301:nk]' pivot='key' type='nominal' />
+            <column-instance column='[comp_name]' derivation='None' name='[none:comp_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[comp_date]' derivation='Year' name='[yr:comp_date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1768uev11ia5l914lh1rg0ucy209].[none:comp_name:nk]</column>
+            <column>[federated.1768uev11ia5l914lh1rg0ucy209].[yr:comp_date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='160' />
+            <format attr='text-align' value='center' />
+            <format attr='height' value='30' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='background-color' scope='rows' value='#000000' />
+            <format attr='band-color' scope='rows' value='#000000' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-align' scope='rows' value='center' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='band-color' scope='rows' value='#000000' />
+            <format attr='background-color' value='#e6e6e6' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='cols' value='0' />
+            <format attr='band-size' scope='rows' value='5' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1t266zq12b739u10gixn20ykypfs].[none:Calculation_2490560986424545301:nk]' />
+              <color column='[federated.1t266zq12b739u10gixn20ykypfs].[Text (group)]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontname='Tableau Semibold' fontsize='12' underline='true'>&lt;</run>
+                <run bold='true' fontname='Tableau Semibold' fontsize='12' underline='true'>[federated.1t266zq12b739u10gixn20ykypfs].[none:Calculation_2490560986424545301:nk]</run>
+                <run bold='true' fontname='Tableau Semibold' fontsize='12' underline='true'>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{8FB24284-DCFE-432A-96AC-7BFFFA9F2F22}' />
+    </worksheet>
+    <worksheet name='Team Score'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Team Score</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Sheet 1 (team_scores)' name='federated.1768uev11ia5l914lh1rg0ucy209' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Top N' datatype='integer' name='[Parameter 1]' param-domain-type='any' role='measure' type='quantitative' value='5'>
+              <calculation class='tableau' formula='5' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1768uev11ia5l914lh1rg0ucy209'>
+            <column caption='labels' datatype='real' name='[Calculation_2490560986413297678]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF INDEX() &lt;= [Parameters].[Parameter 1] THEN ATTR([sum]) END'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column-instance column='[sum]' derivation='Attribute' name='[attr:sum:qk]' pivot='key' type='quantitative' />
+            <column caption='Comp Date' datatype='date' name='[comp_date]' role='dimension' type='ordinal' />
+            <column caption='Comp Name' datatype='string' name='[comp_name]' role='dimension' type='nominal' />
+            <column-instance column='[comp_date]' derivation='Max' name='[max:comp_date:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[comp_name]' derivation='None' name='[none:comp_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[sum]' derivation='Sum' name='[sum:sum:qk]' pivot='key' type='quantitative' />
+            <column caption='Sum' datatype='real' name='[sum]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_2490560986413297678]' derivation='User' name='[usr:Calculation_2490560986413297678:qk:30]' pivot='key' type='quantitative'>
+              <table-calc level-address='[federated.1768uev11ia5l914lh1rg0ucy209].[comp_name]' ordering-type='Field'>
+                <order field='[federated.1768uev11ia5l914lh1rg0ucy209].[yr:comp_date:ok]' />
+                <order field='[federated.1768uev11ia5l914lh1rg0ucy209].[comp_name]' />
+                <sort direction='DESC' using='[federated.1768uev11ia5l914lh1rg0ucy209].[sum:sum:qk]' />
+              </table-calc>
+            </column-instance>
+            <column-instance column='[comp_date]' derivation='Year' name='[yr:comp_date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <computed-sort column='[federated.1768uev11ia5l914lh1rg0ucy209].[none:comp_name:nk]' direction='ASC' using='[federated.1768uev11ia5l914lh1rg0ucy209].[max:comp_date:qk]' />
+          <slices>
+            <column>[federated.1768uev11ia5l914lh1rg0ucy209].[yr:comp_date:ok]</column>
+            <column>[federated.1768uev11ia5l914lh1rg0ucy209].[none:comp_name:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' domain-expand='false' field='[federated.1768uev11ia5l914lh1rg0ucy209].[attr:sum:qk]' field-type='quantitative' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.1768uev11ia5l914lh1rg0ucy209].[none:comp_name:nk]' />
+              <text column='[federated.1768uev11ia5l914lh1rg0ucy209].[usr:Calculation_2490560986413297678:qk:30]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1768uev11ia5l914lh1rg0ucy209].[attr:sum:qk]</rows>
+        <cols>([federated.1768uev11ia5l914lh1rg0ucy209].[yr:comp_date:ok] / [federated.1768uev11ia5l914lh1rg0ucy209].[none:comp_name:nk])</cols>
+      </table>
+      <simple-id uuid='{C72F19EB-FE92-402E-ABCB-24295DBE35BD}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Team'>
+      <style />
+      <size maxheight='860' maxwidth='650' minheight='560' minwidth='420' />
+      <datasources>
+        <datasource caption='Sheet 1 (team_scores)' name='federated.1768uev11ia5l914lh1rg0ucy209' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1768uev11ia5l914lh1rg0ucy209'>
+        <column caption='Comp Date' datatype='date' name='[comp_date]' role='dimension' type='ordinal' />
+        <column caption='Comp Name' datatype='string' name='[comp_name]' role='dimension' type='nominal' />
+        <column-instance column='[comp_name]' derivation='None' name='[none:comp_name:nk]' pivot='key' type='nominal' />
+        <column-instance column='[comp_date]' derivation='Year' name='[yr:comp_date:ok]' pivot='key' type='ordinal' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='48949' id='1' param='vert' type-v2='layout-flow' w='79384' x='1231' y='1201'>
+            <zone h='48949' id='6' name='Team Score' w='79384' x='1231' y='1201'>
+              <layout-cache minheight='204' type-h='scalable' type-w='fixed' />
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+          </zone>
+          <zone h='48649' id='12' is-fixed='true' type-v2='layout-basic' w='97538' x='1231' y='50150'>
+            <zone h='48649' id='3' param='horz' type-v2='layout-flow' w='61384' x='1231' y='50150'>
+              <zone h='48649' id='9' name='Avergage Event Score' w='61384' x='1231' y='50150'>
+                <layout-cache cell-count-w='6' minheight='185' non-cell-size-w='64' type-h='scalable' type-w='cell' />
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone h='48649' id='13' param='vert' type-v2='layout-flow' w='36154' x='62615' y='50150'>
+              <zone fixed-size='274' h='42342' id='10' is-fixed='true' name='Max and Min per Meet' show-title='false' w='36154' x='62615' y='50150'>
+                <layout-cache type-h='cell' type-w='fixed' />
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone fixed-size='32' h='6006' id='19' is-fixed='true' name='Select' show-title='false' w='36154' x='62615' y='92492'>
+                <layout-cache type-h='cell' type-w='fixed' />
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone h='48949' id='4' param='vert' type-v2='layout-flow' w='18154' x='80615' y='1201'>
+            <zone fixed-size='129' h='20570' id='7' is-fixed='true' mode='radiolist' name='Team Score' param='[federated.1768uev11ia5l914lh1rg0ucy209].[yr:comp_date:ok]' show-all='false' type-v2='filter' values='relevant' w='18154' x='80615' y='1201'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone h='27627' id='11' mode='radiolist' name='Team Score' param='[federated.1768uev11ia5l914lh1rg0ucy209].[none:comp_name:nk]' type-v2='filter' values='relevant' w='18154' x='80615' y='21771'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1050' minheight='1050' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='25' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97598' id='24' param='vert' type-v2='layout-flow' w='97538' x='1231' y='1201'>
+                <zone fixed-size='129' h='20570' id='7' mode='dropdown' name='Team Score' param='[federated.1768uev11ia5l914lh1rg0ucy209].[yr:comp_date:ok]' show-all='false' type-v2='filter' values='relevant' w='18154' x='80615' y='1201'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='27627' id='11' mode='dropdown' name='Team Score' param='[federated.1768uev11ia5l914lh1rg0ucy209].[none:comp_name:nk]' type-v2='filter' values='relevant' w='18154' x='80615' y='21771'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='48949' id='6' is-fixed='true' name='Team Score' w='79384' x='1231' y='1201'>
+                  <layout-cache minheight='204' type-h='scalable' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='48649' id='9' is-fixed='true' name='Avergage Event Score' w='61384' x='1231' y='50150'>
+                  <layout-cache cell-count-w='6' minheight='185' non-cell-size-w='64' type-h='scalable' type-w='cell' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='42342' id='10' is-fixed='true' name='Max and Min per Meet' show-title='false' w='36154' x='62615' y='50150'>
+                  <layout-cache type-h='cell' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='44' h='6006' id='19' is-fixed='true' name='Select' show-title='false' w='36154' x='62615' y='92492'>
+                  <layout-cache type-h='cell' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{73C14ACB-7B9A-49EB-B5E4-4A0844BDAC85}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='51'>
+    <window class='worksheet' name='Team Score'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='radiolist' param='[federated.1768uev11ia5l914lh1rg0ucy209].[yr:comp_date:ok]' show-all='false' type='filter' />
+            <card pane-specification-id='0' param='[federated.1768uev11ia5l914lh1rg0ucy209].[none:comp_name:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{EF7B1968-C82C-4E82-A2F6-4090F7CED483}' />
+    </window>
+    <window class='worksheet' name='Avergage Event Score'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1t266zq12b739u10gixn20ykypfs].[none:event:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{71145E0C-A6C5-43F2-80B8-5FC7DE7F4AA0}' />
+    </window>
+    <window class='worksheet' name='Max and Min per Meet'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{AC3291D4-DFCF-447E-83E5-A654C150850E}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Team'>
+      <viewpoints>
+        <viewpoint name='Avergage Event Score'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Max and Min per Meet'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Select'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Team Score'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='19' />
+      <simple-id uuid='{A8E43A73-943B-4142-ABE7-F914ADB10C39}' />
+    </window>
+    <window class='worksheet' name='Select'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{90BFF8B8-58A5-4599-A744-E932C1137F27}' />
+    </window>
+  </windows>
+  <_.fcp.WorkbookOptimizerRuleConfig.true...workbook-optimizer>
+    <rule-config>
+      <rule ignored='true' ruleID='5' />
+      <rule ignored='true' ruleID='15' />
+    </rule-config>
+  </_.fcp.WorkbookOptimizerRuleConfig.true...workbook-optimizer>
+</workbook>
