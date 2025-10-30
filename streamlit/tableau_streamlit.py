@@ -48,7 +48,7 @@ def main():
             vizElement.style.width = '100%';
             vizElement.style.minHeight = '587px';
             vizElement.style.maxHeight = '887px';
-            vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+            vizElement.style.height = (divElement.offsetWidth * 1.10) + 'px';
         } else {
             vizElement.style.width = '100%';
             vizElement.style.height = '1077px';
